@@ -5,10 +5,10 @@ Project's Name:
 Just a flutter-dart exercise demo project for Mobile Programming class at Bakrie University.
 
 This demo exercise the usage of:
-- Basic flutter app widgets such as layouts, transition, routes, pages, etc.
+- Basic flutter app widgets for layouts, transition, routes, pages, etc.
 - Basic navigation menus such as Drawer, TabBar, BottomNavigationBar.
 - Basic forms input elements such as TextField, TextFormField, dialogs, etc.
-- Basic database CRUD with SQLite and Firebase real-time DB.
+- Basic database CRUD operations with SQLite and Firebase real-time DB.
 
 ## File structure:
   - assets
@@ -55,7 +55,7 @@ Some of these codes are taken and modified from these tutorials:
 
 ![UB-SI banner](assets/images/UB_SI_logo.png#gh-light-mode-only)
 
-
+---
 
 ## Official resources on Getting Started with flutter
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
