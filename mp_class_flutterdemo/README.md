@@ -1,6 +1,8 @@
 Project's Name:
 # mp_class_flutterdemo
 
+![UB banner](assets/images/Logo_UB_Tengah.png)
+
 ## Description
 Just a flutter-dart exercise demo project for Mobile Programming class at Bakrie University.
 
@@ -52,10 +54,6 @@ Some of these codes are taken and modified from these tutorials:
   - [firebase_database](https://pub.dev/packages/firebase_database)
 
 # Thanks to Mr. Habibullah Akbar for the lectures
-
-![UB banner](assets/images/Logo_UB_Tengah.png)
-
-
 
 ## Official resources on Getting Started with flutter
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
