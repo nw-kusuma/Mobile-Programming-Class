@@ -67,15 +67,18 @@ class _BMIPageState extends State<BMIPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final Size _size = MediaQuery.of(context).size;
+    // final Size _size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color.fromRGBO(254, 243, 172, 1.0),
         body: Center(
-          child: SizedBox(
-            width: _size.width * 0.75,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: Card(
               color: Colors.white, 
               elevation: 10.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0)),
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
@@ -84,13 +87,11 @@ class _BMIPageState extends State<BMIPage>
                     TextField(
                       keyboardType: TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(labelText: 'Height (cm)'),
-                      controller: _heightController,
-                    ),
+                      controller: _heightController),
                     TextField(
                       keyboardType: TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(labelText: 'Weight (kg)'),
-                      controller: _weightController,
-                    ),
+                      controller: _weightController),
                     addVerticalSpace(15.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

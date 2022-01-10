@@ -31,19 +31,24 @@ Future<ConfirmDelete?> confirmDeleteDialog(BuildContext context) async {
     barrierDismissible: false, 
     builder: (BuildContext context) {  
       return AlertDialog(  
-        title: Text('Delete Contact?'),
+        title: Text('Delete Contact?', 
+          style: TextStyle(color: Color.fromRGBO(133, 23, 26, 1.0))),
         content: Text('Are you sure you want to delete this contact?'),
         actions: [  
           TextButton(
-            child: Text('Cancel'),  
-            style: TextButton.styleFrom(
-              textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)), 
+            child: Text('Cancel',  
+              style: TextStyle(
+                color: Color.fromRGBO(133, 23, 26, 1.0),
+                fontWeight: FontWeight.bold, 
+                fontSize: 18)), 
             onPressed: () => Navigator.of(context).pop(ConfirmDelete.Cancel),  
           ),  
           TextButton(
-            child: Text('Delete'),
-            style: TextButton.styleFrom(
-              textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)), 
+            child: Text('Delete',
+              style: TextStyle(
+                color: Color.fromRGBO(234, 144, 45, 1.0),
+                fontWeight: FontWeight.bold, 
+                fontSize: 18)), 
             onPressed: () => Navigator.of(context).pop(ConfirmDelete.Delete),  
           ),
         ],  
@@ -67,6 +72,7 @@ Future<DetailEdit?> showDetailDialog(
           TextButton(
             child: Text('Edit'),  
             style: TextButton.styleFrom(
+              primary: Color.fromRGBO(133, 23, 26, 1.0),
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold, 
                 fontSize: 18)), 
@@ -75,6 +81,7 @@ Future<DetailEdit?> showDetailDialog(
           TextButton(
             child: Text('Delete'),  
             style: TextButton.styleFrom(
+              primary: Color.fromRGBO(234, 144, 45, 1.0),
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold, 
                 fontSize: 18)), 
@@ -83,6 +90,7 @@ Future<DetailEdit?> showDetailDialog(
           TextButton(
             child: Text('Close'),
             style: TextButton.styleFrom(
+              primary: Color.fromRGBO(133, 23, 26, 1.0),
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold, 
                 fontSize: 18)), 

@@ -45,34 +45,47 @@ class SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(bottom: 30.0),
-                child: Image.asset('assets/images/UB_SI_logo.png',
-                  height: 25.0,
-                  fit: BoxFit.scaleDown,
+      body: Container(
+        alignment: Alignment.center,
+        constraints: BoxConstraints.expand(
+          width: size.width, height: size.height),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [ Color.fromRGBO(254, 243, 172, 1.0),
+                      Color.fromRGBO(234, 144, 45, 1.0),
+                      Color.fromRGBO(133, 23, 26, 1.0) ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topRight,
+            stops: const [0.1, 0.6, 0.9])),
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(bottom: 30.0),
+                  child: Image.asset('assets/images/Logo_UB_Tengah.png',
+                    height: 25.0,
+                    fit: BoxFit.scaleDown,
+                  ),
+                )
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset('assets/images/Logo_UB.png',
+                  width: _animation.value * 300,
+                  height: _animation.value * 300,
                 ),
-              )
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset('assets/images/UB_logo_01.png',
-                width: _animation.value * 250,
-                height: _animation.value * 250,
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

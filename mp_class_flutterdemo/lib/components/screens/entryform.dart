@@ -1,10 +1,10 @@
-// ignore_for_file: unnecessary_null_comparison 
 // ignore_for_file: no_logic_in_create_state
 
 import 'package:flutter/material.dart';
-import 'package:mp_class_flutterdemo/components/models/contacts.dart';
-import 'package:mp_class_flutterdemo/components/widgets/dialogs.dart';
-import 'package:mp_class_flutterdemo/components/widgets/layouts.dart';
+
+import '../models/sqlitedata.dart';
+import '../widgets/dialogs.dart';
+import '../widgets/forms.dart';
 
 
 
@@ -57,9 +57,11 @@ class EntryFormState extends State<EntryForm> {
     _isEmpty() ? showEmptyAlert(context) 
                : Navigator.pop(context, contact);
   }
-  
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+
     if (contact.id != null) {
       _fnameController.text = contact.fname;
       _lnameController.text = contact.lname;
@@ -67,59 +69,70 @@ class EntryFormState extends State<EntryForm> {
       // photoController.text = contact.photo;
       _emailController.text = contact.email;
     }
+  }
+  
+  @override
+  Widget build(BuildContext context) {
     final _verticalPadding = EdgeInsets.only(top:20.0, bottom:20.0);
-    return Scaffold(
-      appBar: AppBar(
-        title: contact == null ? Text('Add Contact') : Text('Update Contact'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_sharp),
-          onPressed: () => Navigator.pop(context),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(133, 23, 26, 1.0),
+          title: contact.id == null ? Text('Add Contact') : Text('Update Contact'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_sharp),
+            onPressed: () => Navigator.pop(context),
+          ),
         ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 15.0, left:10.0, right:10.0),
-        child: ListView(
-          children: <Widget>[
-            buildTextFormField(context, _fnameController, 
-              TextInputType.text, 'Firstname', '', Icons.person, 
-              autoFocus: true, caps: TextCapitalization.words),
-            buildTextFormField(context, _lnameController, 
-              TextInputType.text, 'Lastname', '', Icons.person, 
-              caps: TextCapitalization.words),
-            buildTextFormField(context, _phoneController, 
-              TextInputType.phone, 'Phone', '+62 xxx xxxxxx', Icons.phone),
-            buildTextFormField(context, _emailController, 
-              TextInputType.emailAddress, 'Email', 'name@example.com', Icons.email),
-            Padding (
-              padding: _verticalPadding,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Theme.of(context).primaryColorDark,
-                        textStyle: TextStyle(color: Theme.of(context).primaryColorLight),
-                      ),                      
-                      child: Text('Save', textScaleFactor: 1.5),
-                      onPressed: () => _onSave(context),
+        body: Padding(
+          padding: EdgeInsets.only(top: 15.0, left:10.0, right:10.0),
+          child: ListView(
+            children: <Widget>[
+              buildTextFormField(_fnameController, TextInputType.text, 
+                  'Firstname', '', Icons.person, caps: TextCapitalization.words, 
+                  autoFocus: true),
+              buildTextFormField(_lnameController, TextInputType.text, 
+                  'Lastname', '', Icons.person, caps: TextCapitalization.words),
+              buildTextFormField(_phoneController, TextInputType.phone, 
+                  'Phone', '+62 xxx xxxxxx', Icons.phone),
+              buildTextFormField(_emailController, TextInputType.emailAddress, 
+                  'Email', 'name@example.com', Icons.email),
+              Padding (
+                padding: _verticalPadding,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 5.0,
+                          shadowColor: Color.fromRGBO(234, 144, 45, 1.0),
+                          primary: Color.fromRGBO(133, 23, 26, 1.0),
+                          textStyle: TextStyle(color: Color.fromRGBO(254, 243, 172, 1.0)),
+                        ),                      
+                        child: Text('Save', textScaleFactor: 1.5),
+                        onPressed: () => _onSave(context),
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 10.0),
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Theme.of(context).primaryColorDark,
-                        textStyle: TextStyle(color: Theme.of(context).primaryColorLight)),                      
-                      child: Text('Cancel', textScaleFactor: 1.5),
-                      onPressed: () => Navigator.pop(context),
+                    SizedBox(width: 10.0),
+                    Expanded(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 5.0,
+                          shadowColor: Color.fromRGBO(234, 144, 45, 1.0),
+                          primary: Color.fromRGBO(133, 23, 26, 1.0),
+                          textStyle: TextStyle(color: Color.fromRGBO(254, 243, 172, 1.0)),
+                        ),
+                        child: Text('Cancel', textScaleFactor: 1.5),
+                        onPressed: () => Navigator.pop(context),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      )
+            ],
+          ),
+        )
+      ),
     );
   }
 }

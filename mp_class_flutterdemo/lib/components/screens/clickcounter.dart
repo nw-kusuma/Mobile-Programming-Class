@@ -24,6 +24,7 @@ class _ClickCounterState extends State<ClickCounter>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
+      backgroundColor: Color.fromRGBO(254, 243, 172, 1.0),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,6 +48,7 @@ class _ClickCounterState extends State<ClickCounter>
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromRGBO(133, 23, 26, 1.0),
         heroTag: null,
         onPressed: _incrementCounter,
         tooltip: 'Click Me!',

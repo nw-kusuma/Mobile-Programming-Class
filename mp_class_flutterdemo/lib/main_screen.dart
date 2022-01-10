@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
-import 'components/widgets/drawernav.dart';
-import 'pages/homepage.dart';
-import 'pages/tabbardemo.dart';
-import 'pages/contactview.dart';
+import 'components/routes/drawernav.dart';
+import 'pages/basicnavdemo.dart';
+import 'pages/sqlitedemo.dart';
 import 'pages/firebasedemo.dart';
 
 
@@ -33,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
   } 
 
     final _screens = [
-    HomePage(),
     TabBarDemo(),
     ContactView(),
     FirebaseRTDemo(),
@@ -41,51 +39,52 @@ class _HomeScreenState extends State<HomeScreen> {
 
   String title(int _idx){
     List<String> _tittle = [
-      'Flutter Basic Demo',
-      'TabBar Navigation Demo',
-      'SQLiteDB CRUD Demo',
-      'Firebase Real-time Demo'
+      'Basic Layout & Navigation Demo',
+      'SQLite Database CRUD Demo',
+      'Firebase Realtime DB CRUD Demo'
     ];
     return ((_idx >= 0) ? _tittle[_idx] : _tittle[0]);
   }
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: AppDrawer(),
-      appBar: AppBar(title: Text(title(_currentIndex))),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
-      ), 
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 10.0,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
-        // selectedItemColor: Color.fromRGBO(234, 243, 172, 1.0),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Theme.of(context).primaryColorLight,
-        iconSize: 25,
-        currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            tooltip: title(0), 
-            label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calculate), 
-            tooltip: title(1), 
-            label: 'Counter'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people), 
-            tooltip: title(2), 
-            label: 'Contact'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person), 
-            tooltip: title(3), 
-            label: 'Firebase'),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        drawer: AppDrawer(),
+        appBar: AppBar(
+          titleSpacing: 1.0,
+          titleTextStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          title: Text(title(_currentIndex)),
+          backgroundColor: Color.fromRGBO(133, 23, 26, 1.0)),
+        body: IndexedStack(
+          index: _currentIndex,
+          children: _screens,
+        ), 
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 10.0,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Color.fromRGBO(133, 23, 26, 1.0),
+          // selectedItemColor: Color.fromRGBO(234, 243, 172, 1.0),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Theme.of(context).primaryColorLight,
+          iconSize: 25,
+          currentIndex: _currentIndex,
+          onTap: (index) => setState(() => _currentIndex = index),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              tooltip: title(0), 
+              label: 'Home'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people), 
+              tooltip: title(1), 
+              label: 'SQLite'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person), 
+              tooltip: title(2), 
+              label: 'Firebase'),
+          ],
+        ),
       ),
     );
   }

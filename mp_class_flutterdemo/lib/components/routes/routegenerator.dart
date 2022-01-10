@@ -15,11 +15,7 @@ class RouteGenerator {
       //     return MaterialPageRoute(builder: (_) => HomeScreen(idx: 0));
       case '/home':
           return MaterialPageRoute(builder: (_) => HomeScreen(idx: 0));
-      case '/ccdemo':
-        if (_args is int){
-          return MaterialPageRoute(builder: (_) => HomeScreen(idx: _args));
-        } return _errorRoute();
-      case '/tabdemo':
+      case '/sqlite':
         if (_args is int){
           return MaterialPageRoute(builder: (_) => HomeScreen(idx: _args));
         } return _errorRoute();

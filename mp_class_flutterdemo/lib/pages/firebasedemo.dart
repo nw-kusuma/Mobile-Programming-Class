@@ -1,7 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-import '../components/widgets/layouts.dart';
+import '../components/widgets/forms.dart';
+// import '../components/widgets/layouts.dart';
 
 
 
@@ -11,7 +14,7 @@ class FirebaseRTDemo extends StatefulWidget {
 }
 
 class _FirebaseRTDemoState extends State<FirebaseRTDemo> {
-  final databaseReference = FirebaseDatabase.instance.ref();
+  final dbRef = FirebaseDatabase.instance.ref("users");
   // final bool _active = false;
 
   late String _id;
@@ -24,34 +27,41 @@ class _FirebaseRTDemoState extends State<FirebaseRTDemo> {
   final _descController = TextEditingController();
 
   void _createData() {
-    // _id = _idController.text;
-    databaseReference
-      .child('users/$_id').set({
+    dbRef
+      .child(_id).set({
+        'id' : _id,
         'name': _name, 
         'description': _desc,
       });
   }
 
-  void _readData() {
-    //databaseReference.once().then((DataSnapshot snapshot) {
-    //print('Data : ${snapshot.value}');
+  Future<void> _readData() async {
+    dbRef.once();
+    DatabaseEvent event = await dbRef.once();
+    // var keys = event.snapshot.value;
+    // print(dbRef.key);
+    print(event.snapshot.value);  
+    //  var values = snapshot.value;
+
+    //  for (var key in keys) {
+    //    print(values[key])
+    //  };
     //});
   }
 
   void _updateData() {
-    // _id = _idController.text;
-    databaseReference
-      .child('users/$_id')
+    dbRef
+      .child(_id)
       .update({
+        'id' : _id,
         'name': _name, 
         'description': _desc,
       });
   }
 
   void _deleteData() {
-    // _id = _idController.text;
-    databaseReference
-      .child('users/$_id').remove();
+    dbRef
+      .child(_id).remove();
   }
 
   void _clearTextFields() {
@@ -80,48 +90,41 @@ class _FirebaseRTDemoState extends State<FirebaseRTDemo> {
     _id = _idController.text;
     _name = _nameController.text;
     _desc = _descController.text;
-    _readData();
+    // _readData();
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Padding(
-            padding: EdgeInsets.only(top: 15.0, left: 15.0, right: 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Column(
-                        children: [
-                          buildTextFormField(context, _idController, TextInputType.text, 
-                            'ID', '', Icons.perm_identity),
-                          buildTextFormField(context, _nameController, TextInputType.text, 
-                            'Fullname', '', Icons.person, caps: TextCapitalization.words),
-                          buildTextFormField(context, _descController, TextInputType.text, 
-                            'Description', '', Icons.work, caps: TextCapitalization.sentences),
-                        ],
-                      ),
-                    ),
-                    addHorizontalSpace(5.0),
-                    Expanded(
-                      // width: size.width * 0.25,
-                      child: Column(
-                        children: <Widget>[
-                          _buildElevatedButtons('Create', _createData, _size.width/5),
-                          _buildElevatedButtons('Read', _readData, _size.width/5),
-                          _buildElevatedButtons('Update', _updateData, _size.width/5),
-                          _buildElevatedButtons('Delete', _deleteData, _size.width/5),
-                        ],
-                      ),
-                    ),
+        body: Padding(
+          padding: EdgeInsets.all(25.0),
+          child: Column(
+            children: <Widget>[
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _buildElevatedButtons('Create', _createData, _size.width/5),
+                    _buildElevatedButtons('Read', _readData, _size.width/5),
+                    _buildElevatedButtons('Update', _updateData, _size.width/5),
+                    _buildElevatedButtons('Delete', _deleteData, _size.width/5),
                   ],
                 ),
-              ],
-            ),
-          )
+              ),
+              // addVerticalSpace(10.0),
+              Flexible(
+                child: Column(
+                  children: [
+                    buildTextFormField(_idController, TextInputType.text, 
+                        'ID', '', Icons.perm_identity, isPrefix: true),
+                    buildTextFormField(_nameController, TextInputType.text, 
+                        'Fullname', '', Icons.person, isPrefix: true, 
+                        caps: TextCapitalization.words),
+                    buildTextFormField(_descController, TextInputType.text, 
+                        'Description', '', Icons.work, isPrefix: true, 
+                        caps: TextCapitalization.sentences),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -137,13 +140,18 @@ class _FirebaseRTDemoState extends State<FirebaseRTDemo> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           fixedSize: Size(_width, 40),
+          elevation: 5.0,
+          shadowColor: Color.fromRGBO(234, 144, 45, 1.0),
+          primary: Color.fromRGBO(133, 23, 26, 1.0),
+          textStyle: TextStyle(color: Color.fromRGBO(254, 243, 172, 1.0),
+            fontWeight: FontWeight.bold),
         ),
-        child: Text(_label, style: TextStyle(fontWeight: FontWeight.bold)),
+        child: Text(_label),
         onPressed: () { 
           _onPress();
           _clearTextFields();
         },
-      )
+      ),
     );
   }
 }
