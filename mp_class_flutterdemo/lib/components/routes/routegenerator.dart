@@ -9,10 +9,9 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final _args = settings.arguments;
     switch (settings.name) {
-      case '/':
-          return MaterialPageRoute(builder: (_) => SplashScreen());
-      // case '/':
-      //     return MaterialPageRoute(builder: (_) => HomeScreen(idx: 0));
+//       case '/':
+//           return MaterialPageRoute(builder: (_) => SplashScreen());
+//           return MaterialPageRoute(builder: (_) => HomeScreen(idx: 0));
       case '/home':
           return MaterialPageRoute(builder: (_) => HomeScreen(idx: 0));
       case '/sqlite':
