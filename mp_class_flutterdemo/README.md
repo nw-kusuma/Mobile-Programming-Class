@@ -1,10 +1,9 @@
-Project's Name:
-# mp_class_flutterdemo
-
-![UB banner](assets/images/Logo_UB_Tengah.png)
+## Project's Name: ***mp_class_flutterdemo***
 
 ## Description
 Just a flutter-dart exercise demo project for Mobile Programming class at Bakrie University.
+
+![UB banner](assets/images/Logo_UB_Tengah.png)
 
 This demo exercise the usage of:
 - Basic flutter app widgets such as layouts, transition, routes, pages, etc.
