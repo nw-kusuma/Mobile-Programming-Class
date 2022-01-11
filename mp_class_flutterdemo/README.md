@@ -19,25 +19,29 @@ This demo exercise the usage of:
       - (contains .png files)
   - lib
     - main.dart
-    - -main_splash.dart- this files is not used, for splash I use a package to replace the default native splashscreen
     - main_screen.dart
+    - ~~main_splash.dart~~ -- (update: *this files is not used anymore. to replace the default white splashscreen, I use a package*)
     - pages
-      - homepage.dart
-      - tabbardemo.dart
-      - contactview.dart
+      - basicnavdemo.dart
       - firebasedemo.dart
+      - sqlitedemo.dart
     - components
       - screens
         - bmicalculator.dart
         - clickcounter.dart
         - entryform.dart
+        - landingpage.dart
       - helpers
         - sqlitedbhelper.dart
       - models
-        - contacts.dart
+        - sqlitedata.dart
+        - firebasedata.dart
+      - routes
+        - drawernav.dart
+        - routegenerator.dart
       - widgets
         - dialogs.dart
-        - drawernav.dart
+        - forms.dart
         - layouts.dart
 
 ### References:
@@ -53,6 +57,7 @@ Some of these codes are taken and modified from these tutorials:
   - [path_provider](https://pub.dev/packages/path_provider)
   - [firebase_core](https://pub.dev/packages/firebase_core)
   - [firebase_database](https://pub.dev/packages/firebase_database)
+  - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 
 # Thanks to Mr. Habibullah Akbar for the lectures
 
