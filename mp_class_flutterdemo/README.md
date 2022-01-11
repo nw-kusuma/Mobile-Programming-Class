@@ -20,7 +20,7 @@ This demo exercise the usage of:
   - lib
     - main.dart
     - main_screen.dart
-    - ~~main_splash.dart~~ -- (update: *this files is not used anymore. to replace the default white splashscreen, I use a package*)
+    - ~~main_splash.dart~~ -- (update: *I use flutter_native_splash package instead of this, see the package's page on pub.dev*)
     - pages
       - basicnavdemo.dart
       - firebasedemo.dart
