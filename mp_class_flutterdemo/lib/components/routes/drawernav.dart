@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 
-
 class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Drawer(
@@ -27,12 +26,12 @@ class AppDrawer extends StatelessWidget {
           onTap: () => Navigator.of(context).pushNamed('/firebase', arguments: 2),
         ),
         Divider(color: Colors.pink[900]),
-       _createDrawerItem(
-          icon: Icons.video_library, 
-          text: 'Splash screen',
-          onTap: () => Navigator.of(context).pushNamed('/'),
-        ),
-        Divider(color: Colors.pink[900]),
+//        _createDrawerItem(
+//           icon: Icons.video_library, 
+//           text: 'Splash screen',
+//           onTap: () => Navigator.of(context).pushNamed('/'),
+//         ),
+//         Divider(color: Colors.pink[900]),
       ],
     ),
   );
