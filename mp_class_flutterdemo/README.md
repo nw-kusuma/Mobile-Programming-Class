@@ -23,7 +23,7 @@ This demo exercise the usage of:
     - mipmap-xxxx --> (*several directories for various resolution app-icon*) 
       - ic_launcher.png
 #### Note:  
-- You can create the app-icons using Image Asset Studio in AndroidStudio.
+- You can create the app-icons using [Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio) in AndroidStudio.
 - However, that option above didn't appear when I open this flutter projects in AndroidStudio, so I created it using Adobe XD and export it as PNG with Android option selected, which automatically export them in various resolution (placed under different directories named drawable-xxxx).
 - Also, add your own ***google.services.json*** file (downloaded from your firebase account) in to the "***android\app***" directory. 
 
