@@ -16,10 +16,10 @@ This demo exercise the usage of:
 ## File structure:
   - assets
     - images
-      - (four .png files)
+      - (contains .png files)
   - lib
     - main.dart
-    - main_splash.dart
+    - -main_splash.dart- this files is not used, for splash I use a package to replace the default native splashscreen
     - main_screen.dart
     - pages
       - homepage.dart
