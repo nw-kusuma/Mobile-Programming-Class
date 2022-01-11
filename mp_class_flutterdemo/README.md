@@ -1,10 +1,8 @@
-**Project's Name:**
----
+## **Project's Name:**
 # mp_class_flutterdemo
 
-**Description**
----
-Just a flutter-dart exercise demo project for Mobile Programming class at Bakrie University.
+## **Description**
+Just a flutter-dart exercise demo project for **Mobile Programming** class at **Bakrie University**.
 
 ![UB banner](assets/images/Logo_UB_Tengah.png)
 
@@ -14,10 +12,10 @@ This demo exercise the usage of:
 - Basic forms input elements such as TextField, TextFormField, dialogs, etc.
 - Basic database CRUD with SQLite and Firebase real-time DB.
 - Changing app-icon and flutter default white splashscreen.
-
-**File structure:**
 ---
-### Image assets: 
+## **File structure:**
+### Image assets:
+
   - assets
     - images
       - *contains .png image files used throughout this project*
@@ -60,19 +58,18 @@ This demo exercise the usage of:
 Some of these codes are taken and modified from these tutorials:
   - https://www.codepolitan.com/mengakses-database-sqlite-dengan-flutter
   - https://medium.flutterdevs.com/explore-realtime-database-in-flutter-c5870c2b231f
-
-**Packages used:**
 ---
+## **Packages used:**
   - [sqflite](https://pub.dev/packages/sqflite)
   - [path_provider](https://pub.dev/packages/path_provider)
   - [firebase_core](https://pub.dev/packages/firebase_core)
   - [firebase_database](https://pub.dev/packages/firebase_database)
   - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
-
+---
 # Thanks to Mr. Habibullah Akbar for the lectures
 
-**Official resources on Getting Started with flutter**
---
+## **Official resources on Getting Started with flutter**
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 - [Flutter online documentation](https://flutter.dev/docs), which offers tutorials, samples, guidance on mobile development, and a full API reference.
+---
