@@ -11,6 +11,7 @@ This demo exercise the usage of:
 - Basic navigation menus such as Drawer, TabBar, BottomNavigationBar.
 - Basic forms input elements such as TextField, TextFormField, dialogs, etc.
 - Basic database CRUD with SQLite and Firebase real-time DB.
+- Changing app icon and flutter default white splash screen.
 
 ## File structure:
   - assets
