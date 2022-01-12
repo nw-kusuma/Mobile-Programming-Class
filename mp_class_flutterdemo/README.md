@@ -4,8 +4,6 @@
 ## **Description**
 Just a flutter-dart exercise demo project for **Mobile Programming** class at **Bakrie University**.
 
-![UB banner](assets/images/Logo_UB_Tengah.png)
-
 This demo exercise the usage of:
 - Basic flutter app widgets such as layouts, transition, routes, pages, etc.
 - Basic navigation menus such as Drawer, TabBar, BottomNavigationBar.
@@ -67,6 +65,8 @@ Some of these codes are taken and modified from these tutorials:
   - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 ---
 # Thanks to Mr. Habibullah Akbar for the lectures
+
+![UB banner](assets/images/Logo_UB_Tengah.png)
 
 ## **Official resources on Getting Started with flutter**
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
