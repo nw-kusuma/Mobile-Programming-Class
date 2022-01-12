@@ -1,0 +1,57 @@
+name: mpclass_uas
+description: Code companion for UAS (final-term exam).
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  firebase_core: ^1.11.0
+  firebase_auth: ^3.3.5
+  firebase_database: ^9.0.5
+
+  cupertino_icons: ^1.0.2
+  curved_navigation_bar: ^1.0.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+  flutter_native_splash: ^1.3.3
+
+flutter_native_splash:
+  color: '#ffffff'
+  image: assets/images/splash_image.png
+  android: true
+  android_gravity: fill
+  ios: true
+  ios_content_mode: scaleAspectFill
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    # - assets/icons/
+    # - assets/fonts/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
