@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/home_screen.dart';
 import '../../screens/splash_screen.dart';
 import '../../screens/signin_screen.dart';
 import '../../screens/location_screen.dart';
-import '../../screens/authentications/phoneauth_screen.dart';
 import '../../screens/authentications/otp_screen.dart';
+import '../../screens/authentications/phoneauth_screen.dart';
 
 // final Map<String, WidgetBuilder> routes = {
 //   SplashScreen.id: (context) => SplashScreen(),
@@ -26,11 +27,16 @@ class RouteGenerator {
           return MaterialPageRoute(builder: (context) => PhoneAuthScreen());
       case '/otp-ver':
           if (_args is List<String>) {
-            return MaterialPageRoute(builder: (context) => OTPScreen(phoneNumber: _args[0], verId: _args[1]));
+            return MaterialPageRoute(builder: (context) 
+                => OTPScreen(phoneNumber: _args[0], verId: _args[1]));
           } return _errorRoute();
-      case '/loc-fetch':
+      case '/location':
           if (_args is User) {
             return MaterialPageRoute(builder: (context) => LocationScreen(user: _args));
+          } return _errorRoute();
+      case '/home':
+          if (_args is String) {
+            return MaterialPageRoute(builder: (context) => HomeScreen(currAdrress: _args));
           } return _errorRoute();
      default:
         return _errorRoute();
@@ -51,7 +57,7 @@ class RouteGenerator {
             ),
           ),
         ),
-        body: Center(child: Text('Something goes wrong!')),
+        body: Center(child: Text('Something went wrong!')),
       ),
     );
   }

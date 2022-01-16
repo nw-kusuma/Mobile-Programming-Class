@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../components/constants/themes.dart';
+import '../../components/constants/colors.dart';
 import '../../components/constants/styles.dart';
 import '../../components/helpers/keyboard.dart';
-import '../../components/helpers/authentications.dart';
+import '../../components/helpers/firebase_services.dart';
 import '../../components/widgets/indicators.dart';
 import '../../components/widgets/layouts.dart';
 
@@ -121,7 +121,7 @@ class _PhoneAuthScreenState
     return Padding(
       padding: const EdgeInsets.only(top: 50.0, bottom: 15.0),
       child: Image.asset('assets/images/signin_auth.png',
-        width: size.height * 0.25,
+        width: size.height * 0.225,
         filterQuality: FilterQuality.medium,
       ),
     );

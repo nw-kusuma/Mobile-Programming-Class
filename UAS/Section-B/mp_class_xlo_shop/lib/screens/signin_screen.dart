@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mp_class_xlo_shop/components/constants/themes.dart';
+import 'package:mp_class_xlo_shop/components/constants/colors.dart';
 
 import '../components/constants/styles.dart';
 

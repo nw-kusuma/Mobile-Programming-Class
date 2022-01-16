@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'components/constants/themes.dart';
+import 'components/constants/colors.dart';
 import 'components/routes/routes.dart';
 // import 'screens/signin_screen/signin_screen.dart';
 // import 'screens/splash_screen.dart';
@@ -21,6 +21,7 @@ class MyApp
       debugShowCheckedModeBanner: false,
       title: 'FAST-SHOP',
       theme: ThemeData(
+        fontFamily: 'lato',
         primaryColor: COLOR_NORMAL,
         primaryColorDark: COLOR_DARK,
         primaryColorLight: COLOR_LIGHT),
