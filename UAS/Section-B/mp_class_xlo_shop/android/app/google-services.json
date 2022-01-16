@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "694584971278",
+    "project_id": "mp-class-xlo-shop",
+    "storage_bucket": "mp-class-xlo-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694584971278:android:35b3d5239d7c40d3e2ac5f",
+        "android_client_info": {
+          "package_name": "com.mp_class_xlo_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694584971278-5f8ml187v487rsc553tsbegk2aih7gc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mp_class_xlo_shop",
+            "certificate_hash": "2c65bf967b1d48257ac7b4a43b34fc3848fc2d0d"
+          }
+        },
+        {
+          "client_id": "694584971278-3anig98tehb0dbbebduq1s28nl1i62nv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPW3nnVsQJmtwvdfu9PcrmiZ_CFVP-p5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694584971278-3anig98tehb0dbbebduq1s28nl1i62nv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
