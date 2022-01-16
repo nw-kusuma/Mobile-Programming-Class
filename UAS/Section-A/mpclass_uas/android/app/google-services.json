@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "907011472493",
+    "firebase_url": "https://uas-mpclass-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "uas-mpclass",
+    "storage_bucket": "uas-mpclass.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907011472493:android:d2679011b17508f9565364",
+        "android_client_info": {
+          "package_name": "com.nwks.mpclass_uas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907011472493-e3rht4tq4dvpsous40oh8hfr1oebmpr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nwks.mpclass_uas",
+            "certificate_hash": "2c65bf967b1d48257ac7b4a43b34fc3848fc2d0d"
+          }
+        },
+        {
+          "client_id": "907011472493-j9qpbqncqh11h6q26lv84l1cnb1cfr7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjhPLoImxFyqJl6rvotuqcYrs0MvZzuqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907011472493-j9qpbqncqh11h6q26lv84l1cnb1cfr7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
