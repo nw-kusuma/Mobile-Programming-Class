@@ -100,6 +100,7 @@ Future<ConfirmDelete?> confirmDeleteDialog(BuildContext context) async {
         title: Text("Delete Student Data?", 
           style: TextStyle(color: kPrimaryDark)),
         content: Text('Are you sure you want to delete this Student Data?'),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
         actions: [  
           TextButton(
             child: Text('Cancel',  
@@ -133,7 +134,9 @@ showSuccessDialog(
       return AlertDialog(
         title: Text(_title, style: TextStyle(color: kPrimaryDark)),
         content: Text(_message, style: TextStyle(color: kPrimaryDark)),
-        backgroundColor: kPrimaryLight,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+        // backgroundColor: kPrimaryLight,
+        actionsAlignment: MainAxisAlignment.center,
         actions: <Widget>[
           TextButton(
             child: Text('OK', textAlign: TextAlign.center),
