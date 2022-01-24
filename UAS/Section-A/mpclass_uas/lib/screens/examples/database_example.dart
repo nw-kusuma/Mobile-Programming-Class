@@ -25,7 +25,6 @@ class _FirebaseDBPageState
   bool _isDelete = false;
 
   late String _newId; 
-  late String _succeedText = '';
   String _subjectDesc = 'Student ID';
   String _selectedId = 'Student ID';
   String _selectedSubject = 'Class';
@@ -105,7 +104,7 @@ class _FirebaseDBPageState
                         onPress: () { 
                           resetTextFormField();
                           setState(() {
-                              _isDelete = true; _succeedText = '';
+                              _isDelete = true; 
                               _isCreate = false; _isRead = false; _isUpdate = false;
                           });
                         }),
@@ -132,10 +131,10 @@ class _FirebaseDBPageState
   }
 
   void resetTextFormField() async{
-    // _idController.clear();
-    // _nameController.clear();
-    // _emailController.clear();
-    // _gradeController.clear();
+    _idController.clear();
+    _nameController.clear();
+    _emailController.clear();
+    _gradeController.clear();
 
     // setState(() {
     //     _selectedId = 'Student ID';
@@ -196,9 +195,7 @@ class _FirebaseDBPageState
               onValueChanged: (val) => setState(() { 
                 _selectedSubject = val!;
                 _subjectDesc = _subjects[_selectedSubject].toString();
-              }
-            ),
-          ),
+          })),
           Row(
             children: [
               Expanded(
@@ -221,8 +218,7 @@ class _FirebaseDBPageState
                         _selectedGrade
                   ).whenComplete(() { 
                       showSuccessDialog(context, "Data Added Successfully", 
-                            """Student Data:\n${_nameController.text}
-                            \n${_emailController.text}\n$_subjectDesc ($_selectedGrade)""");
+                            "Student Data:\n\t${_nameController.text}\n\t${_emailController.text}\n\t$_subjectDesc ($_selectedGrade)");
                       resetTextFormField(); 
                       setState(() {
                           _idController.text = _newId;
@@ -250,7 +246,7 @@ class _FirebaseDBPageState
               var _subjectList = await _dbService
                       .getSubject('Students/$_selectedId/subject', false);
               setState(() =>   _subjects = _subjectList);
-            }),
+          }),
           Row(
             children: [
               Expanded(
@@ -260,12 +256,12 @@ class _FirebaseDBPageState
                 onPress: () async{
                   var _student = await _dbService.readData('Students/$_selectedId');
 
-                  _nameController.text = _student[1].toString();
+                  _nameController.text  = _student[1].toString();
                   _emailController.text = _student[2].toString();
-                  _unfocusTextFields();
               }),
             ],
           ),
+          SizedBox(height: 10.0),
           buildTextFormField(_nameController, TextInputType.text, 
               'Fullname', CupertinoIcons.person_alt, caps: TextCapitalization.words),
           buildTextFormField(_emailController, TextInputType.text, 
@@ -322,8 +318,7 @@ class _FirebaseDBPageState
               onValueChanged: (val) => setState(() { 
                 _selectedSubject = val!;
                 _subjectDesc = _subjects[_selectedSubject].toString();
-            }),
-          ),
+          })),
           Row(
             children: [
               Expanded(
@@ -347,13 +342,11 @@ class _FirebaseDBPageState
                         _selectedGrade
                   ).whenComplete(() { 
                       showSuccessDialog(context, "Data Updated Successfully", 
-                        """Student Data:\n${_nameController.text}
-                        \n${_emailController.text}\n$_subjectDesc ($_selectedGrade)""");
+                            "Student Data:\n\t${_nameController.text}\n\t${_emailController.text}\n\t$_subjectDesc ($_selectedGrade)");
                       resetTextFormField();
                       setState(() => _isUpdate = true);
                   });
-                }
-              ),
+              }),
           ],),
       ],),
     );
@@ -369,8 +362,13 @@ class _FirebaseDBPageState
                             child: Text(val),
                             value: val))
                         .toList(), 
-            onValueChanged: (val) => setState(() => _selectedId = val!)
-          ),
+            onValueChanged: (val) async{ 
+              setState(() => _selectedId = val!);
+              var _student = await _dbService.readData('Students/$_selectedId');
+
+              _nameController.text  = _student[1].toString();
+              _emailController.text = _student[2].toString();
+          }),
           Row(
             children: [
               Expanded(
@@ -381,22 +379,17 @@ class _FirebaseDBPageState
                   final ConfirmDelete? del = await confirmDeleteDialog(context);
                   if (del == ConfirmDelete.delete) {
                     _dbService.deleteData('Students/$_selectedId');
-                    setState(() {
-                        _succeedText = "Data deleted successfully";
-                    });
-                  }
-                  resetTextFormField();
-                }),
+                    showSuccessDialog(context, "Data Deleted Successfully", 
+                          "Student Data:\n\t${_nameController.text}\n\t${_emailController.text}");
+                    resetTextFormField();
+                    setState(() => _isDelete = true);
+                }}),
           ]),
-          if (_succeedText.isNotEmpty)
-          Align(alignment: Alignment.bottomCenter,
-            child: Text(_succeedText,
-
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-              fontSize: 36.0, 
-          ))),
+          SizedBox(height: 10.0),
+          buildTextFormField(_nameController, TextInputType.text, 
+              'Fullname', CupertinoIcons.person_alt, caps: TextCapitalization.words),
+          buildTextFormField(_emailController, TextInputType.text, 
+              'Email', CupertinoIcons.mail_solid),
       ]),
     );
   }
