@@ -1,101 +1,165 @@
 import 'package:flutter/material.dart';
-import 'export_widgets.dart';
+import '../export_widgets.dart';
 
 
-Widget buildBodyBackground(
-  Size _size,
-  int _flexTop, _flexBottom,
-  double _radius,
-  bool _left,
-{ required Widget topChild,
-  required Widget bottomChild }) {
-  return Column(
-    children: <Widget>[
-      Expanded(flex: _flexTop,
-        child: Container(
-          color: kPrimaryDark,
-          child: Container(width: _size.width,
-            decoration: BoxDecoration(
-              borderRadius: 
-                _left ? BorderRadius.only(bottomLeft: Radius.circular(_radius))
-                      : BorderRadius.only(bottomRight: Radius.circular(_radius)),
-              color: kPrimaryLight,
-            ),
-            child: topChild,
-      ),),),
-      Expanded(flex: _flexBottom,
-        child: Container(
-          color: kPrimaryLight,
-          child: Container(width: _size.width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [ kPrimaryLight,
-                          kPrimaryColor,
-                          kPrimaryDark ],
-                begin: Alignment.bottomCenter,
-                end: _left ? Alignment.topLeft : Alignment.topRight,
-                stops: const [0.1, 0.6, 0.9]),
-              borderRadius: 
-                _left ? BorderRadius.only(topRight: Radius.circular(_radius))
-                      : BorderRadius.only(topLeft: Radius.circular(_radius)),
-            ),
-            child: bottomChild,
-      ),),),
-    ],
-  );
-}
-
+// -----------------------------------------------------------------------
+// Form Fields
+// -----------------------------------------------------------------------
 Widget buildTextFormField(
   TextEditingController _controller,
   TextInputType _keyType,
-  Color _decoColor,
   String _label,
-  IconData _icon, 
-{ bool isPrefix = false,
+  IconData _icon,
+{ double padding = 10.0,
+  bool isReadOnly = false,
   bool autoFocus = false,
-  TextCapitalization caps = TextCapitalization.none,
-}){
+  TextCapitalization caps = TextCapitalization.none }
+) {
   return Padding (
-    padding: EdgeInsets.only(top: 20.0, bottom:10.0),
+    padding: EdgeInsets.symmetric(vertical: padding),
     child: TextFormField(
+      // onChanged: (value) {},
+      readOnly: isReadOnly,
       autofocus: autoFocus,
       controller: _controller,
       keyboardType: _keyType,
       textCapitalization: caps,
-      style: TextStyle(color: _decoColor),
+      style: TextStyle(color: kPrimaryDark, fontWeight: FontWeight.w500),
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 5.0),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: kPrimaryDark)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: _decoColor)),
+          borderSide: BorderSide(color: kPrimaryDark)),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: kPrimaryDark)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(color: _decoColor)),
+          borderSide: BorderSide(color: kPrimaryDark)),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
         filled: true,
-        fillColor: kPrimaryColor,
+        fillColor: kPrimaryLight,
         labelText: _label,
-        labelStyle: TextStyle(color: _decoColor),
-        prefixIcon: isPrefix ? Icon(_icon, color: _decoColor) : null,
-        suffixIcon: isPrefix ? null : Icon(_icon, color: _decoColor),
+        labelStyle: TextStyle(color: kPrimaryDark, fontWeight: FontWeight.w500),
+        prefixIcon: Icon(_icon, color: kPrimaryDark),
       ),
-      // onChanged: (value) {},
     ),
   );
 }
 
-AppBar buildAppBar(_title) {
-  return AppBar(
-    elevation: 0,
-    backgroundColor: Colors.transparent,
-    iconTheme: IconThemeData(color: kPrimaryDark),
-    title: Text(_title, 
-      style: TextStyle(color: kPrimaryDark),),
+Widget buildDropDownFormField(
+  String _label,
+  IconData _icon,
+{ required List<DropdownMenuItem<String>> itemLists,
+  required Function(String?) onValueChanged }
+){
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10.0),
+    child: DropdownButtonFormField(
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 5.0),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: kPrimaryDark)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: kPrimaryDark)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(color: kPrimaryDark)),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        filled: true,
+        fillColor: kPrimaryLight,
+        labelText: _label,
+        labelStyle: TextStyle(color: kPrimaryDark, fontWeight: FontWeight.w500),
+        prefixIcon: Icon(_icon, color: kPrimaryDark),
+      ),
+      dropdownColor: kPrimaryColor,
+      iconEnabledColor: kPrimaryDark,
+      iconSize: 36.0,
+      style: TextStyle(color: kPrimaryDark, fontWeight: FontWeight.w500),
+      items: itemLists,
+      onChanged: onValueChanged,
+    ),
   );
 }
 
+// -----------------------------------------------------------------------
+// Dialog Boxes
+// -----------------------------------------------------------------------
+enum ConfirmDelete {cancel, delete}  
+Future<ConfirmDelete?> confirmDeleteDialog(BuildContext context) async {  
+  return showDialog<ConfirmDelete>(  
+    context: context,  
+    barrierDismissible: false, 
+    builder: (BuildContext context) {  
+      return AlertDialog(  
+        title: Text("Delete Student Data?", 
+          style: TextStyle(color: kPrimaryDark)),
+        content: Text('Are you sure you want to delete this Student Data?'),
+        actions: [  
+          TextButton(
+            child: Text('Cancel',  
+              style: TextStyle(
+                color: kPrimaryDark,
+                fontWeight: FontWeight.bold, 
+                fontSize: 18)), 
+            onPressed: () => Navigator.of(context).pop(ConfirmDelete.cancel),  
+          ),  
+          TextButton(
+            child: Text('Delete',
+              style: TextStyle(
+                color: kPrimaryDark,
+                fontWeight: FontWeight.bold, 
+                fontSize: 18)), 
+            onPressed: () => Navigator.of(context).pop(ConfirmDelete.delete),  
+          ),
+        ],  
+      );
+    },  
+  );  
+}
+
+showSuccessDialog(
+  BuildContext context,
+  String _title, _message,
+){
+  return showDialog(
+    context: context, 
+    builder: (BuildContext context){
+      return AlertDialog(
+        title: Text(_title, style: TextStyle(color: kPrimaryDark)),
+        content: Text(_message, style: TextStyle(color: kPrimaryDark)),
+        backgroundColor: kPrimaryLight,
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK', textAlign: TextAlign.center),
+            style: TextButton.styleFrom(
+              textStyle: TextStyle(
+                color: kPrimaryDark,
+                fontWeight: FontWeight.bold, 
+                fontSize: 18.0,
+              )),
+            onPressed: () => Navigator.pop(context), 
+          ),
+        ],
+      );
+    }
+  );
+}
+
+
+// -----------------------------------------------------------------------
+// Text Decorations
+// -----------------------------------------------------------------------
 Text buildTitleText(
   String _text, 
   double _size,
-{ Color color = Colors.white }) { 
+{ Color color = Colors.white }
+) { 
   return Text(_text, 
     style: TextStyle(
       color: color, 
@@ -108,7 +172,8 @@ Text buildTitleText(
 Row buildSubtitleRow(
   String _text, 
   double _size,
-{ Color color = Colors.white }) { 
+{ Color color = Colors.white }
+) { 
   return Row(
     children: <Widget>[
       Expanded(child: Container(height: 1.0, color: color)),
@@ -121,6 +186,5 @@ Row buildSubtitleRow(
             fontWeight: FontWeight.w500,
       ),),),
       Expanded(child: Container(height: 1.0, color: color)),
-    ],
-  );
+  ],);
 }

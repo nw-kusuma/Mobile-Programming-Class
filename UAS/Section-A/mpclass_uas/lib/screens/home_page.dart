@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../components/widgets_builder.dart';
+import 'package:mpclass_uas/export_widgets.dart';
 
 class HomePage 
   extends StatelessWidget {

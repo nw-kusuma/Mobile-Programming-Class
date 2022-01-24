@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/export_widgets.dart';
+import '../../export_widgets.dart';
 
 class NavExamplePage 
   extends StatelessWidget {
@@ -14,9 +14,9 @@ class NavExamplePage
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        drawer: buildAppDrawer(context, size),
-        appBar: buildAppBar('AppBar & Drawer'),
-        body: buildBodyBackground(size, 1, 11, 40.0, false,
+        endDrawer: AppDrawer(),
+        appBar: AppTopBar(titleText: "AppBar & Drawer", showBack: true),
+        body: AppBodyBackground(1, 11, 40.0, false,
           topChild: Container(width: 0,), 
           bottomChild: Padding(
             padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
@@ -35,7 +35,7 @@ class NavExamplePage
                 ),),
                 Align(
                   child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.90,
+                    width: size.width * 0.6,
                 ),),
             ]),
           ),

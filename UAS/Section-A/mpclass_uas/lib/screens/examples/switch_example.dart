@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../components/export_widgets.dart';
+import '../../export_widgets.dart';
 
 class SwitchFirstPage 
   extends StatelessWidget {
     final String _text =
-    """Now, let's talk a bit about swtching pages. Flutter does them with Navigator methods. Navigator works like a stacks in Data Structure, with PUSH and POP.
-    \nPUSH take a the new screen and places it on top of the current one.
-    \nPOP take the current screen and remove it from the stacks to get back to the previous screen under it.""";
+    """Now, let's talk a bit about swtching pages. Flutter does them with Navigator methods. 
+    \nNavigator works like a stacks in Data Structure, with PUSH and POP.
+    \nPUSH places a new screen into the stack on top of the current one.
+    \nPOP remove the current screen from the stack, so the previous screen will be on the topmost again.""";
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,8 @@ class SwitchFirstPage
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: buildAppBar('Switch-Page: Page One'),
-        body: buildBodyBackground(size, 1, 11, 40.0, false,
+        appBar: AppTopBar(titleText: "Switch-Page: Page One"),
+        body: AppBodyBackground(1, 11, 40.0, false,
           topChild: Container(width: 0,), 
           bottomChild: Padding(
             padding: EdgeInsets.symmetric(horizontal:15.0, vertical: 5.0),
@@ -58,7 +59,7 @@ class SwitchFirstPage
                 ),),
                 Align(
                   child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.90,
+                    width: size.width * 0.55,
                 ),),
             ]),
           ),
@@ -81,8 +82,8 @@ class SwitchSecondPage
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: buildAppBar('Switch-Page: Page Two'),
-        body: buildBodyBackground(size, 1, 11, 40.0, false,
+        appBar: AppTopBar(titleText: "Switch-Page: Page Two"),
+        body: AppBodyBackground(1, 11, 40.0, false,
           topChild: Container(width: 0,), 
           bottomChild: Padding(
             padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
@@ -126,7 +127,7 @@ class SwitchSecondPage
                 ),),
                 Align(
                   child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.90,
+                    width: size.width * 0.55,
                 ),),
             ]),
           ),
@@ -152,8 +153,8 @@ class SwitchThirdPage
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: buildAppBar('Switch-Page: Page Three'),
-        body: buildBodyBackground(size, 1, 11, 40.0, false,
+        appBar: AppTopBar(titleText: "Switch-Page: Page Three"),
+        body: AppBodyBackground(1, 11, 40.0, false,
           topChild: Container(width: 0,), 
           bottomChild: Padding(
             padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
@@ -184,7 +185,7 @@ class SwitchThirdPage
                 ),),
                 Align(
                   child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.90,
+                    width: size.width * 0.55,
                 ),),
             ]),
           ),

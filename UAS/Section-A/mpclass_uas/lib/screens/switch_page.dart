@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../components/export_widgets.dart';
+import 'package:mpclass_uas/export_packages.dart';
+import 'package:mpclass_uas/export_screens.dart';
 
 class SwitchPage 
   extends StatelessWidget {
