@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
 import '../export_packages.dart';
 import '../export_widgets.dart';
+import '../../main.dart';
 
 class AppDrawer 
   extends Drawer {
@@ -11,6 +10,10 @@ class AppDrawer
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Drawer(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(25.0),
+      )),
       backgroundColor: kPrimaryLight,
       child: ListView(
         children: [

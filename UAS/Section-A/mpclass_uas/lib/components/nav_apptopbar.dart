@@ -6,12 +6,16 @@ class AppTopBar
     final String titleText;
     final List<Widget>? action;
     final bool showBack, hasAction;
+    final TabBar? appTabBar;
+    final double tabBarOpacity;
 
   AppTopBar({
     this.titleText = '', 
     this.showBack = false, 
     this.hasAction = false,
-    this.action 
+    this.action,
+    this.appTabBar,
+    this.tabBarOpacity = 0.0, 
   });
 
   @override
@@ -27,6 +31,7 @@ class _AppTopBarState
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
+      leadingWidth: 25.0,
       leading: widget.showBack 
         ? IconButton(icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop())
@@ -37,6 +42,8 @@ class _AppTopBarState
       iconTheme: IconThemeData(color: kPrimaryDark),
       title: Text(widget.titleText, 
         style: TextStyle(color: kPrimaryDark),),
+      bottom: widget.appTabBar,
+      bottomOpacity: widget.tabBarOpacity,
     );
   }
 }
