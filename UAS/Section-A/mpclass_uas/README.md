@@ -49,6 +49,22 @@ This project demonstrate how:
       - widgets_builder.dart
       - firebase_helper.dart
 ---
+## **Firebase RT DB structure:**
+  - roots db
+    - Students
+      - id
+        - name
+        - email
+        - subject
+          - subject-id
+            - desc
+            - grade
+    - Subjects
+    - Grades
+#### Note:  
+- See the [screenshot images of the database](../screenshots/database/) in the screenshots directory.
+- Also, add your own ***google.services.json*** file (downloaded from your firebase account) in to the "***android\app***" directory. 
+---
 ## **Packages used:**
   - [firebase_core](https://pub.dev/packages/firebase_core)
   - [firebase_database](https://pub.dev/packages/firebase_database)
