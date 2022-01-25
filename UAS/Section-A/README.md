@@ -1,1 +1,1 @@
-Still in progress.. not yet completed..
+# Mobile-Programming-Class :: UAS :: Section A
