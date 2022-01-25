@@ -2,7 +2,7 @@
 # mpclass_uas
 
 ## **Description**
-A flutter-dart demo project for **Mobile Programming** class final/end-term exam at **Bakrie University**.
+A flutter-dart demo project as a code companion for **Mobile Programming** class final/end-term exam at **Bakrie University**.
 
 This project demonstrate how:
 - The basic transition or switching between screens are done.
@@ -17,10 +17,10 @@ This project demonstrate how:
     - images
       - *contains .png logo image files used in this project*
   - android\app\src\main\res
-    - mipmap-xxxx    <-- (*several directories for each resolution app-icon*) 
-      - ic_launcher.png
     - drawable-xxxx    <-- (*several directories for each resolution splash-screen image*) 
       - splash.png
+    - mipmap-xxxx    <-- (*several directories for each resolution app-icon*) 
+      - ic_launcher.png
 #### Note:  
 - You can create the app-icons using [Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio) in AndroidStudio.
 - However, that option above didn't appear when I open this flutter projects in AndroidStudio, so I created it using Adobe XD and export it as PNG with Android option selected, which automatically export them in various resolution (placed under different directories named drawable-xxxx).
