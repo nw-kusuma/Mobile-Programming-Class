@@ -12,57 +12,55 @@ class SwitchFirstPage
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppTopBar(titleText: "Switch-Page: Page One"),
-        body: AppBodyBackground(1, 11, 40.0, false,
-          topChild: Container(width: 0,), 
-          bottomChild: Padding(
-            padding: EdgeInsets.symmetric(horizontal:15.0, vertical: 5.0),
-            child: Column(
-              children: [
-                Expanded(child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Woah we are PUSH-ed into another page!",
-                      style: TextStyle(
-                        fontSize: 24.0, 
-                        color: kPrimaryLight,
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 45.0),
-                    Text(_text,
-                      style: TextStyle(
-                        fontSize: 18.0, 
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.justify,
-                    ),
-                    SizedBox(height: 25.0),
-                    Text("\nLets try PUSH-ing in another page again..",
-                      style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500)),
-                    SizedBox(height: 10.0),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Theme.of(context).primaryColorDark,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                      ),),
-                      child: Text("PUSH to SECOND page"),
-                      onPressed: () => 
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (BuildContext context) 
-                                  => SwitchSecondPage())), 
-                    ),
-                  ],
-                ),),
-                Align(
-                  child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.55,
-                ),),
-            ]),
-          ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppTopBar(titleText: "Switch-Page: Page One"),
+      body: AppBodyBackground(1, 9, 30.0, false,
+        topChild: Container(width: 0,), 
+        bottomChild: Padding(
+          padding: EdgeInsets.symmetric(horizontal:15.0, vertical: 5.0),
+          child: Column(
+            children: [
+              Expanded(child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Woah we are PUSH-ed into another page!",
+                    style: TextStyle(
+                      fontSize: 24.0, 
+                      color: kPrimaryLight,
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 45.0),
+                  Text(_text,
+                    style: TextStyle(
+                      fontSize: 18.0, 
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.justify,
+                  ),
+                  SizedBox(height: 25.0),
+                  Text("\nLets try PUSH-ing in another page again..",
+                    style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500)),
+                  SizedBox(height: 10.0),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).primaryColorDark,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                    ),),
+                    child: Text("PUSH to SECOND page"),
+                    onPressed: () => 
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (BuildContext context) 
+                                => SwitchSecondPage())), 
+                  ),
+                ],
+              ),),
+              Align(
+                child: Image.asset("assets/images/Logo_UB_Tengah.png",
+                  width: size.width * 0.55,
+              ),),
+          ]),
         ),
       ),
     );
@@ -79,58 +77,56 @@ class SwitchSecondPage
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppTopBar(titleText: "Switch-Page: Page Two"),
-        body: AppBodyBackground(1, 11, 40.0, false,
-          topChild: Container(width: 0,), 
-          bottomChild: Padding(
-            padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
-            child: Column(
-              children: [
-                Expanded(child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Now we are in another page, lets call it the SECOND page",
-                      style: TextStyle(
-                        fontSize: 20.0, 
-                        color: kPrimaryLight,
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 45.0),
-                    Text(_text,
-                      style: TextStyle(
-                        fontSize: 18.0, 
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.justify),
-                    SizedBox(height: 25.0),
-                    Text("\nNow lets try it out now..",
-                      style: TextStyle(
-                        fontSize: 16.0, 
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center),
-                    SizedBox(height: 10.0),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Theme.of(context).primaryColorDark,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                      ),),
-                      child: Text("PUSH to THIRD page"),
-                      onPressed: () => 
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(builder: (BuildContext context) 
-                                  => SwitchThirdPage())), 
-                  ),],
-                ),),
-                Align(
-                  child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.55,
-                ),),
-            ]),
-          ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppTopBar(titleText: "Switch-Page: Page Two"),
+      body: AppBodyBackground(1, 9, 30.0, false,
+        topChild: Container(width: 0,), 
+        bottomChild: Padding(
+          padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
+          child: Column(
+            children: [
+              Expanded(child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Now we are in another page, lets call it the SECOND page",
+                    style: TextStyle(
+                      fontSize: 20.0, 
+                      color: kPrimaryLight,
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 45.0),
+                  Text(_text,
+                    style: TextStyle(
+                      fontSize: 18.0, 
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.justify),
+                  SizedBox(height: 25.0),
+                  Text("\nNow lets try it out now..",
+                    style: TextStyle(
+                      fontSize: 16.0, 
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center),
+                  SizedBox(height: 10.0),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).primaryColorDark,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                    ),),
+                    child: Text("PUSH to THIRD page"),
+                    onPressed: () => 
+                        Navigator.of(context)
+                            .pushReplacement(MaterialPageRoute(builder: (BuildContext context) 
+                                => SwitchThirdPage())), 
+                ),],
+              ),),
+              Align(
+                child: Image.asset("assets/images/Logo_UB_Tengah.png",
+                  width: size.width * 0.55,
+              ),),
+          ]),
         ),
       ),
     );
@@ -150,45 +146,43 @@ class SwitchThirdPage
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppTopBar(titleText: "Switch-Page: Page Three"),
-        body: AppBodyBackground(1, 11, 40.0, false,
-          topChild: Container(width: 0,), 
-          bottomChild: Padding(
-            padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
-            child: Column(
-              children: [
-                Expanded(child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Now we are in the THIRD page",
-                      style: TextStyle(
-                        fontSize: 20.0, 
-                        color: kPrimaryLight,
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 35.0),
-                    Text(_texts[0],
-                      style: TextStyle(
-                        fontSize: 16.0, 
-                        fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.justify),
-                    Text(_texts[1],
-                      style: TextStyle(
-                        fontSize: 18.0, 
-                        fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.left),
-                    ],
-                ),),
-                Align(
-                  child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.55,
-                ),),
-            ]),
-          ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppTopBar(titleText: "Switch-Page: Page Three"),
+      body: AppBodyBackground(1, 9, 30.0, false,
+        topChild: Container(width: 0,), 
+        bottomChild: Padding(
+          padding: EdgeInsets.symmetric(horizontal:25.0, vertical: 5.0),
+          child: Column(
+            children: [
+              Expanded(child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Now we are in the THIRD page",
+                    style: TextStyle(
+                      fontSize: 20.0, 
+                      color: kPrimaryLight,
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 35.0),
+                  Text(_texts[0],
+                    style: TextStyle(
+                      fontSize: 16.0, 
+                      fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.justify),
+                  Text(_texts[1],
+                    style: TextStyle(
+                      fontSize: 18.0, 
+                      fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.left),
+                  ],
+              ),),
+              Align(
+                child: Image.asset("assets/images/Logo_UB_Tengah.png",
+                  width: size.width * 0.55,
+              ),),
+          ]),
         ),
       ),
     );

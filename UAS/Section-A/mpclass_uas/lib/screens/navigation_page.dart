@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mpclass_uas/export_packages.dart';
-import 'package:mpclass_uas/export_screens.dart';
+import '../export_packages.dart';
+import '../export_screens.dart';
 
 class NavigationPage 
   extends StatelessWidget {

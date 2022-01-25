@@ -1,6 +1,7 @@
 export 'components/firebase_helper.dart';
 export 'components/firebase_model.dart';
 
+export 'components/nav_fabmenu.dart';
 export 'components/nav_apptopbar.dart';
 export 'components/nav_bottombar.dart';
 export 'components/nav_drawermenu.dart';

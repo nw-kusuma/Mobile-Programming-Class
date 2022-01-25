@@ -59,71 +59,69 @@ class _FirebaseDBPageState
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        extendBodyBehindAppBar: true,
-        endDrawer: AppDrawer(),
-        appBar: AppTopBar(titleText: "Firebase Real-Time DB", showBack: true),
-        body: AppBodyBackground(1, 11, 40, false, 
-          topChild: Container(height: 0), 
-          bottomChild: Padding(
-            padding: EdgeInsets.only(left:25.0, right: 25.0, top: 25.0, bottom: 5.0),
-            child: Column(
-              children: <Widget>[
-                Expanded(flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      _buildElevatedButtons('Create', //size.width/5, 
-                        onPress: () { 
-                          resetTextFormField();
-                          setState(() {
-                              _isCreate = true; 
-                              _isRead = _isUpdate = _isDelete = false;
-                          });
-                        }),
-                      _buildElevatedButtons('Read', //size.width/5, 
-                        onPress: () { 
-                          _gradeController.clear();
-                          resetTextFormField();
-                          setState(() {
-                              _isRead = true;
-                              _isCreate = _isUpdate = _isDelete = false;
-                          });
-                        }),
-                      _buildElevatedButtons('Update', //size.width/5, 
-                        onPress: () { 
-                          resetTextFormField();
-                          setState(() {
-                            _isUpdate = true;
-                            _isCreate = _isRead = _isDelete = false;
-                          });
-                        }),
-                      _buildElevatedButtons('Delete', //size.width/5, 
-                        onPress: () { 
-                          resetTextFormField();
-                          setState(() {
-                              _isDelete = true; 
-                              _isCreate = false; _isRead = false; _isUpdate = false;
-                          });
-                        }),
-                    ],
-                  ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBodyBehindAppBar: true,
+      endDrawer: AppDrawer(),
+      appBar: AppTopBar(titleText: "Firebase Real-Time DB", showBack: true),
+      body: AppBodyBackground(1, 9, 30, false, 
+        topChild: Container(height: 0), 
+        bottomChild: Padding(
+          padding: EdgeInsets.only(left:25.0, right: 25.0, top: 20.0, bottom: 5.0),
+          child: Column(
+            children: <Widget>[
+              Expanded(flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _buildElevatedButtons('Create', //size.width/5, 
+                      onPress: () { 
+                        resetTextFormField();
+                        setState(() {
+                            _isCreate = true; 
+                            _isRead = _isUpdate = _isDelete = false;
+                        });
+                      }),
+                    _buildElevatedButtons('Read', //size.width/5, 
+                      onPress: () { 
+                        _gradeController.clear();
+                        resetTextFormField();
+                        setState(() {
+                            _isRead = true;
+                            _isCreate = _isUpdate = _isDelete = false;
+                        });
+                      }),
+                    _buildElevatedButtons('Update', //size.width/5, 
+                      onPress: () { 
+                        resetTextFormField();
+                        setState(() {
+                          _isUpdate = true;
+                          _isCreate = _isRead = _isDelete = false;
+                        });
+                      }),
+                    _buildElevatedButtons('Delete', //size.width/5, 
+                      onPress: () { 
+                        resetTextFormField();
+                        setState(() {
+                            _isDelete = true; 
+                            _isCreate = false; _isRead = false; _isUpdate = false;
+                        });
+                      }),
+                  ],
                 ),
-                Expanded(flex: 9,
-                  child: _isCreate  ? _buildCreateForm()
-                       : _isRead    ? _buildReadForm()
-                       : _isUpdate  ? _buildUpdateForm()
-                       : _isDelete  ? _buildDeleteForm()
-                       : Container(width: 0.0),
-                ),
-                Align(
-                  child: Image.asset("assets/images/Logo_UB_Tengah.png",
-                    width: size.width * 0.6,
-                )),
-              ],
-            ),
+              ),
+              Expanded(flex: 9,
+                child: _isCreate  ? _buildCreateForm()
+                     : _isRead    ? _buildReadForm()
+                     : _isUpdate  ? _buildUpdateForm()
+                     : _isDelete  ? _buildDeleteForm()
+                     : Container(width: 0.0),
+              ),
+              Align(
+                child: Image.asset("assets/images/Logo_UB_Tengah.png",
+                  width: size.width * 0.6,
+              )),
+            ],
           ),
         ),
       ),
