@@ -44,8 +44,9 @@ This project demonstrate how:
     - components
       - body_background.dart
       - nav_apptopbar.dart
-      - nav_drawermenu.dart
       - nav_bottombar.dart
+      - nav_drawermenu.dart
+      - nav_fabmenu.dart
       - widgets_builder.dart
       - firebase_helper.dart
 ---
